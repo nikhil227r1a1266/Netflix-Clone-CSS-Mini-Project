@@ -1,0 +1,344 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+header {
+  height: 70px;
+  width: 100%;
+  background-color: rgba(5, 5, 5, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo img {
+  width: clamp(90px, 12vw, 140px);
+  height: auto;
+}
+
+nav {
+  display: none; /* Hidden on mobile by default */
+  align-items: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #3a3939;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.content a {
+  color: #131212;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+}
+
+.content a:hover {
+  color: red;
+}
+
+.dropdown:hover .content {
+  display: block;
+}
+.lang {
+  /* display: none; */
+  position: absolute;
+  left: 100%;
+  top: 70%;
+  background-color: #fff;
+}
+#lang:hover .lang {
+  display: block;
+}
+.headright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  border-radius: 8px;
+  background-color: rgba(130, 116, 116, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  height: 34px;
+  width: clamp(110px, 20vw, 250px);
+  padding: 0 10px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: #fff;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+select {
+  height: 34px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+body {
+  background-color: #131212;
+  scroll-behavior: smooth;
+}
+main {
+  width: 100%;
+}
+.container {
+  width: 100%;
+  height: 50vh;
+  margin-top: 75px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.scroll {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+
+  animation: movieScroll 25s linear infinite;
+}
+
+.card {
+  width: 250px;
+  height: 350px;
+
+  flex-shrink: 0;
+
+  border-radius: 6px;
+  overflow: hidden;
+  border-radius: 20px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+@keyframes movieScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll:hover {
+  animation-play-state: paused;
+}
+.telugu,
+.tamil,
+.hindi,
+.malayalam,
+.non-indian {
+  height: 50vh;
+  background-color: #111;
+  margin-top: 20px;
+  padding: 20px;
+}
+.telugu-container,
+.tamil-container,
+.hindi-container,
+.malayalam-container,
+.non-indian-container {
+  padding-top: 30px;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.telugu-card,
+.tamil-card,
+.hindi-card,
+.malayalam-card,
+.non-indian-card {
+  height: 300px;
+  min-width: 300px;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  /* margin-left: 40px; */
+}
+.telugu-card img,
+.tamil-card img,
+.hindi-card img,
+.malayalam-card img,
+.non-indian-card img {
+  height: 60%;
+  width: 100%;
+  border-radius: 10px;
+}
+.telugu-info,
+.tamil-info,
+.hindi-info,
+.malayalam-info,
+.non-indian-info {
+  background-color: #3a3939;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  margin-top: -10px;
+  display: none;
+}
+.telugu-info p,
+.tamil-info p,
+.hindi-info p,
+.malayalam-info p,
+.non-indian-info p {
+  margin: 10px 0px 10px 0px;
+  font-size: 14px;
+  text-align: center;
+}
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.mbt {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+  color: #111;
+}
+.telugu-card:hover .telugu-info,
+.tamil-card:hover .tamil-info,
+.hindi-card:hover .hindi-info,
+.malayalam-card:hover .malayalam-info,
+.non-indian-card:hover .non-indian-info {
+  display: flex;
+}
+.telugu-card:hover,
+.tamil-card:hover,
+.hindi-card:hover,
+.malayalam-card:hover,
+.non-indian-card:hover {
+  transform: scale(1.08, 1.08);
+  z-index: 1;
+}
+.telugu-card:hover img,
+.tamil-card:hover img,
+.hindi-card:hover img,
+.malayalam-card:hover img,
+.non-indian-card:hover img {
+  border-radius: 10px 10px 0px 00px;
+}
+.heading {
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+footer {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  color: #ccc;
+  background-color: #111;
+}
+.links {
+  display: flex;
+  margin-left: -50px;
+}
+.contact-container {
+  width: 70%;
+  margin-left: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.links img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.links img:hover {
+  transform: translateY(-10px);
+}
+.line {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 12px;
+}
+.line:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.foot {
+  font-size: 12px;
+  margin-left: -100px;
+}
