@@ -1,0 +1,380 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+body {
+  background-color: #111;
+  font-family:
+    Netflix Sans,
+    Helvetica Neue,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    sans-serif;
+}
+header {
+  height: 70px;
+  width: 100%;
+  background-color: rgba(5, 5, 5, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo img {
+  width: clamp(90px, 12vw, 140px);
+  height: auto;
+}
+
+nav {
+  display: none; /* Hidden on mobile by default */
+  align-items: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #3a3939;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.content a {
+  color: #131212;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+}
+
+.content a:hover {
+  color: red;
+}
+
+.dropdown:hover .content {
+  display: block;
+}
+.lang {
+  /* display: none; */
+  position: absolute;
+  left: 100%;
+  top: 70%;
+  background-color: #fff;
+}
+#lang:hover .lang {
+  display: block;
+}
+.headright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  border-radius: 8px;
+  background-color: rgba(130, 116, 116, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  height: 34px;
+  width: clamp(110px, 20vw, 250px);
+  padding: 0 10px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: #fff;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.drop {
+  position: relative;
+  display: inline-block;
+}
+.drop button {
+  height: 30px;
+  width: auto;
+  border-radius: 10px;
+  background-color: #120c1f;
+  color: #fff;
+  border: 1px solid #120c1f;
+}
+.profile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 10%;
+  background: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.profile a {
+  text-decoration: none;
+  text-align: center;
+  color: #111;
+  display: block;
+  padding: 8px;
+}
+
+.profile a:hover {
+  background-color: #eee;
+  color: red;
+}
+
+.drop:hover .profile {
+  display: block;
+}
+.planSection {
+  background-color: #111;
+  width: 100%;
+  margin-top: 70px;
+  color: #fff;
+}
+.heading {
+  color: #fff;
+  margin: 20px;
+}
+.plansConatiner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+  gap: 3rem;
+}
+
+.planCard {
+  min-height: 300px;
+  min-width: 150px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 16px 16px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.372);
+}
+
+.planCard1 {
+  background: linear-gradient(
+    149deg,
+    #1c4072 6.96%,
+    #172b47 40.17%,
+    #120c1f 73.39%
+  );
+}
+
+.planCard2 {
+  background: linear-gradient(
+    149deg,
+    #1d529d 6.96%,
+    #233371 40.17%,
+    #120c1f 73.39%
+  );
+}
+
+.planCard3 {
+  background: linear-gradient(
+    149deg,
+    #792a95 6.96%,
+    #38216c 40.17%,
+    #120c1f 73.39%
+  );
+}
+
+.planCard4 {
+  background: linear-gradient(
+    149deg,
+    #922556 6.96%,
+    #391945 40.17%,
+    #120c1f 73.39%
+  );
+}
+
+.planCard h2 {
+  margin-left: 0;
+  font-size: 1.5rem;
+}
+
+.planCard h4 {
+  font-size: 1.3rem;
+}
+
+.planCard p {
+  font-size: 1rem;
+}
+.faqCardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.faqCard {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.faqQuestion,
+.faqAnswer {
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #2e2e2e;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 70vw;
+  margin-left: 30px;
+}
+
+.faqQuestion span {
+  font-size: 2rem;
+  font-weight: 900;
+}
+.faqAnswer {
+  display: none;
+}
+
+.faqCard:hover {
+  cursor: pointer;
+}
+
+.faqCard:hover .faqAnswer {
+  display: block;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.faqCardsContainer {
+  flex-direction: column;
+}
+footer {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  color: #ccc;
+  background-color: #111;
+}
+.links {
+  display: flex;
+  margin-left: -50px;
+}
+.contact-container {
+  width: 70%;
+  margin-left: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.links img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.links img:hover {
+  transform: translateY(-10px);
+}
+.line {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 12px;
+}
+.line:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.foot {
+  font-size: 12px;
+  margin-left: -100px;
+}
+
+@media (min-width: 761px) and (max-width: 1024px) {
+  nav {
+    display: flex;
+  }
+
+  .dropdown {
+    display: none;
+  }
+  .plansConatiner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5%;
+    gap: 20px;
+  }
+  .planCard {
+    min-width: 300px;
+    flex: 1 1 300px;
+  }
+}
+
+@media (min-width: 1025px) {
+  nav {
+    display: flex;
+  }
+  .dropdown {
+    display: none;
+  }
+
+  .plansConatiner {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 5%;
+    gap: 20px;
+  }
+  .planCard {
+    flex: 1;
+  }
+}

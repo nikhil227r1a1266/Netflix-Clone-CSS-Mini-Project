@@ -111,13 +111,46 @@ input::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
 
-select {
-  height: 34px;
-  background: #000;
+.drop {
+  position: relative;
+  display: inline-block;
+}
+.drop button {
+  height: 30px;
+  width: auto;
+  border-radius: 10px;
+  background-color: #120c1f;
   color: #fff;
-  border: 1px solid #444;
+  border: 1px solid #120c1f;
+}
+.profile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 10%;
+  background: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  padding: 0 5px;
+  min-width: 150px;
+}
+
+.profile a {
+  text-decoration: none;
+  text-align: center;
+  color: #111;
+  display: block;
+  padding: 8px;
+}
+
+.profile a:hover {
+  background-color: #eee;
+  color: red;
+}
+
+.drop:hover .profile {
+  display: block;
 }
 body {
   background-color: #131212;
@@ -154,9 +187,7 @@ main {
   border-radius: 6px;
   overflow: hidden;
   border-radius: 20px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .card img {
@@ -190,10 +221,15 @@ main {
 .hindi,
 .malayalam,
 .non-indian {
-  height: 50vh;
+  height: 60vh;
   background-color: #111;
-  margin-top: 20px;
-  padding: 20px;
+  padding-left: 30px;
+}
+.tamil,
+.hindi,
+.malayalam,
+.non-indian {
+  margin-top: -50px;
 }
 .telugu-container,
 .tamil-container,
@@ -208,6 +244,8 @@ main {
   align-items: center;
   overflow-x: scroll;
   scrollbar-width: none;
+  z-index: 1;
+  /* border: 2px solid white; */
 }
 .telugu-card,
 .tamil-card,
@@ -219,6 +257,7 @@ main {
   border-radius: 10px;
   transition: all 0.3s linear;
   /* margin-left: 40px; */
+  z-index: 10;
 }
 .telugu-card img,
 .tamil-card img,
@@ -292,6 +331,35 @@ main {
 .non-indian-card:hover img {
   border-radius: 10px 10px 0px 00px;
 }
+.lang-bt {
+  position: relative;
+  height: 30px;
+  width: 120px;
+  border-radius: 10px;
+  background-color: #1111116b;
+  border: none;
+  color: #fff;
+}
+.langs {
+  position: absolute;
+  /* right: 10px; */
+  top: 50%;
+  left: 51%;
+  /* display: flex;
+  flex-direction: column; */
+  background-color: #fff;
+  display: none;
+}
+.drop:hover .langs {
+  display: flex;
+  flex-direction: column;
+}
+.langs a {
+  color: #000;
+}
+.genres:hover {
+  color: red;
+}
 .heading {
   color: #fff;
   font-size: 1.3rem;
@@ -341,4 +409,86 @@ footer {
 .foot {
   font-size: 12px;
   margin-left: -100px;
+}
+@media (min-width: 760px) and (max-width: 1023px) {
+  .dropdown {
+    display: none;
+  }
+  nav {
+    display: flex;
+  }
+  .tamil,
+  .hindi,
+  .malayalam,
+  .non-indian {
+    margin-top: -100px;
+  }
+  .telugu-card,
+  .tamil-card,
+  .hindi-card,
+  .malayalam-card,
+  .non-indian-card {
+    height: 400px;
+    min-width: 350px;
+  }
+  footer {
+    margin-top: -150px;
+  }
+  .line {
+    font-size: 18px;
+  }
+  .contact-container {
+    gap: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .dropdown {
+    display: none;
+  }
+  nav {
+    display: flex;
+  }
+  nav a {
+    font-size: 20px;
+  }
+
+  .lang-bt {
+    font-size: 18px;
+    width: 250px;
+    /* border: 2px solid white; */
+    margin-left: 20px;
+  }
+  .langs a {
+    font-size: 16px;
+  }
+  .telugu-info p,
+  .tamil-info p,
+  .hindi-info p,
+  .malayalam-info p,
+  .non-indian p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .tamil,
+  .hindi,
+  .malayalam,
+  .non-indian {
+    margin-top: -40px;
+  }
+  .mbt {
+    height: 40px;
+    width: 40px;
+    font-size: 24px;
+  }
+  .links img {
+    height: 70px;
+    width: 70px;
+    margin-top: -30px;
+  }
+  .line {
+    font-size: 18px;
+  }
+  .foot {
+    font-size: 16px;
+  }
 }

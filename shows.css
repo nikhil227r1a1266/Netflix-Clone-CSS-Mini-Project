@@ -1,0 +1,492 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+header {
+  height: 70px;
+  width: 100%;
+  background-color: rgba(5, 5, 5, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo img {
+  width: clamp(90px, 12vw, 140px);
+  height: auto;
+}
+
+nav {
+  display: none; /* Hidden on mobile by default */
+  align-items: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #3a3939;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.content a {
+  color: #131212;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+}
+
+.content a:hover {
+  color: red;
+}
+
+.dropdown:hover .content {
+  display: block;
+}
+.lang {
+  /* display: none; */
+  position: absolute;
+  left: 100%;
+  top: 70%;
+  background-color: #fff;
+}
+#lang:hover .lang {
+  display: block;
+}
+.headright {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  border-radius: 8px;
+  background-color: rgba(130, 116, 116, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  height: 34px;
+  width: clamp(110px, 20vw, 250px);
+  padding: 0 10px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: #fff;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* select {
+  height: 34px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0 5px;
+} */
+.drop {
+  position: relative;
+  display: inline-block;
+}
+.drop button {
+  height: 30px;
+  border-radius: 10px;
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #111;
+}
+
+.profile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.profile a {
+  text-decoration: none;
+  text-align: center;
+  color: #111;
+  display: block;
+  padding: 8px;
+}
+
+.profile a:hover {
+  background-color: #eee;
+  color: red;
+}
+
+/* Show dropdown when hovering */
+.drop:hover .profile {
+  display: block;
+}
+body {
+  background-color: #131212;
+  scroll-behavior: smooth;
+}
+main {
+  width: 100%;
+}
+.container {
+  width: 100%;
+  height: 50vh;
+  margin-top: 75px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.scroll {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+
+  animation: movieScroll 25s linear infinite;
+}
+
+.card {
+  width: 250px;
+  height: 350px;
+
+  flex-shrink: 0;
+
+  border-radius: 6px;
+  overflow: hidden;
+  border-radius: 20px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+@keyframes movieScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll:hover {
+  animation-play-state: paused;
+}
+.drama,
+.thriller,
+.crime,
+.action,
+.comedy {
+  height: 60vh;
+  background-color: #111;
+  padding-left: 30px;
+}
+.drama-container,
+.thriller-container,
+.crime-container,
+.action-container,
+.comedy-container {
+  padding-top: 30px;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  z-index: 1;
+  padding-left: 20px;
+  /* border: 2px solid white; */
+}
+.drama-card,
+.thriller-card,
+.crime-card,
+.action-card,
+.comedy-card {
+  height: 300px;
+  min-width: 300px;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  /* margin-left: 40px; */
+  z-index: 10;
+}
+.drama-card img,
+.thriller-card img,
+.crime-card img,
+.action-card img,
+.comedy-card img {
+  height: 60%;
+  width: 100%;
+  border-radius: 10px;
+}
+.drama-info,
+.thriller-info,
+.crime-info,
+.action-info,
+.comedy-info {
+  background-color: #3a3939;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  margin-top: -10px;
+  display: none;
+}
+.drama-info p,
+.thriller-info p,
+.crime-info p,
+.action-info p,
+.comedy-info p {
+  margin: 10px 0px 10px 0px;
+  font-size: 14px;
+  text-align: center;
+}
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.mbt {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+  color: #111;
+}
+.drama-card:hover .drama-info,
+.thriller-card:hover .thriller-info,
+.crime-card:hover .crime-info,
+.action-card:hover .action-info,
+.comedy-card:hover .comedy-info {
+  display: flex;
+}
+.drama-card:hover,
+.thriller-card:hover,
+.crime-card:hover,
+.action-card:hover,
+.comedy-card:hover {
+  transform: scale(1.08, 1.08);
+  z-index: 1;
+}
+.drama-card:hover img,
+.thriller-card:hover img,
+.crime-card:hover img,
+.action-card:hover img,
+.comedy-card:hover img {
+  border-radius: 10px 10px 0px 0px;
+}
+.lang-bt {
+  position: relative;
+  height: 30px;
+  width: 120px;
+  border-radius: 10px;
+  background-color: #1111116b;
+  border: none;
+  color: #fff;
+}
+.langs {
+  position: absolute;
+  /* right: 10px; */
+  top: 50%;
+  left: 51%;
+  /* display: flex;
+  flex-direction: column; */
+  background-color: #fff;
+  display: none;
+}
+.drop:hover .langs {
+  display: flex;
+  flex-direction: column;
+}
+.langs a {
+  color: #000;
+}
+.genres:hover {
+  color: red;
+}
+.heading {
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+footer {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  color: #ccc;
+  background-color: #111;
+}
+.links {
+  display: flex;
+  margin-left: -50px;
+}
+.contact-container {
+  width: 70%;
+  margin-left: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.links img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.links img:hover {
+  transform: translateY(-10px);
+}
+.line {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 12px;
+}
+.line:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.foot {
+  font-size: 12px;
+  margin-left: -100px;
+}
+@media (min-width: 760px) and (max-width: 1023px) {
+  .dropdown {
+    display: none;
+  }
+  nav {
+    display: flex;
+  }
+  .thriller,
+  .crime,
+  .action,
+  .comedy {
+    margin-top: -100px;
+  }
+  .drama-card,
+  .thriller-card,
+  .crime-card,
+  .action-card,
+  .comedy-card {
+    height: 400px;
+    min-width: 350px;
+  }
+  footer {
+    margin-top: -150px;
+  }
+  .line {
+    font-size: 18px;
+  }
+  .contact-container {
+    gap: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .dropdown {
+    display: none;
+  }
+  nav {
+    display: flex;
+  }
+  nav a {
+    font-size: 20px;
+  }
+  .lang-bt {
+    font-size: 18px;
+    width: 250px;
+    /* border: 2px solid white; */
+    margin-left: -20px;
+  }
+  .langs a {
+    font-size: 16px;
+  }
+  .drama-info p,
+  .thriller-info p,
+  .crime-info p,
+  .action-info p,
+  .comedy-info p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .mbt {
+    height: 40px;
+    width: 40px;
+    font-size: 24px;
+  }
+  .links img {
+    height: 70px;
+    width: 70px;
+    margin-top: -30px;
+  }
+  .line {
+    font-size: 18px;
+  }
+  .foot {
+    font-size: 16px;
+  }
+}
