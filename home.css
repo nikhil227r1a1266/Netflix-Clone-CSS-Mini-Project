@@ -10,9 +10,18 @@
     Ubuntu,
     sans-serif;
 }
+body {
+  scroll-behavior: smooth;
+  background: linear-gradient(
+    to right,
+    #111 0%,
+    rgb(95, 65, 65) 50%,
+    #110 100%
+  );
+}
 main {
   width: 100%;
-  background-color: #111;
+  /* background-color: #111; */
 }
 header {
   height: 70px;
@@ -127,7 +136,7 @@ input::placeholder {
 .profile {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -60%;
   right: 10%;
   background: #fff;
   padding: 10px;
@@ -161,6 +170,7 @@ input::placeholder {
   position: relative;
   overflow: hidden;
   background-color: black;
+  margin-top: 9vh;
 }
 
 /* EACH MOVIE */
@@ -191,8 +201,6 @@ input::placeholder {
   top: 0;
   left: 0;
 }
-/* INFORMATION */
-/* for mobile */
 .info {
   position: absolute;
   left: 5%;
@@ -319,7 +327,7 @@ input::placeholder {
   height: 70vh;
   width: 100%;
 
-  background-color: #111;
+  /* background-color: #111; */
   color: white;
 
   padding: 40px 5%;
@@ -331,7 +339,8 @@ input::placeholder {
   display: flex;
   align-items: center;
   gap: 30px;
-  overflow-x: scroll;
+  overflow-x: auto;
+  overflow-y: visible;
   scrollbar-width: none;
   margin-top: 10px;
 }
@@ -341,6 +350,7 @@ input::placeholder {
   width: 350px;
   min-width: 350px;
   position: relative;
+  z-index: 1;
   margin-top: -100px;
 }
 .image {
@@ -373,6 +383,8 @@ input::placeholder {
   padding-left: 10px;
   font-size: 12px;
   display: none;
+  position: relative;
+  z-index: 1;
   height: 30%;
 }
 
@@ -382,9 +394,15 @@ input::placeholder {
   align-items: center;
   gap: 20px;
   border-radius: 0px 0px 10px 10px;
+
+  z-index: 10;
+}
+.card:hover {
+  z-index: 100;
 }
 .image:hover {
   transform: scale(1.25, 1.12);
+  z-index: 10;
 }
 .image:hover img {
   border-radius: 10px 10px 0px 0px;
@@ -416,21 +434,20 @@ input::placeholder {
 .Movies,
 .shows,
 .kids {
-  height: 60vh;
-  background-color: #111;
-  margin-top: -50px;
+  height: 50vh;
+  margin-top: -150px;
 }
 .movie-container,
 .show-container,
 .kids-container {
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
   overflow-x: scroll;
   scrollbar-width: none;
-  margin-top: -50px;
+  margin-top: -30px;
   /* border: 2px solid red; */
 }
 .movie-card,
@@ -441,7 +458,8 @@ input::placeholder {
   border-radius: 10px;
   transition: all 0.3s linear;
   margin-left: 40px;
-  z-index: 15;
+  position: relative;
+  z-index: 1;
 }
 .movie-card img,
 .show-card img,
@@ -486,39 +504,33 @@ input::placeholder {
 .movie-card:hover .movie-info {
   display: flex;
 }
-.movie-card:hover {
+.movie-card:hover,
+.show-card:hover,
+.kids-card:hover {
   transform: scale(1.08, 1.08);
-  z-index: 1;
+  z-index: 10;
 }
-.show-card:hover img {
+.movie-card:hover img,
+.show-card:hover img,
+.kids-card:hover img {
   border-radius: 10px 10px 0px 0px;
 }
 .show-card:hover .show-info {
   display: flex;
 }
-.show-card:hover {
-  transform: scale(1.08);
-  z-index: 15;
-}
 .kids-card:hover .kids-info {
   display: flex;
 }
-.kids-card:hover img {
-  border-radius: 10px 10px 0px 0px;
-}
-.kids-card:hover {
-  transform: scale(1.1);
-}
 footer {
-  height: 40vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
   color: #ccc;
-  background-color: #111;
-  margin-top: -50px;
+  /* background-color: #111; */
+  margin-top: -70px;
 }
 .links {
   display: flex;
@@ -607,13 +619,19 @@ footer {
   .Movies,
   .shows,
   .kids {
-    margin-top: -100px;
+    margin-top: -120px;
+  }
+  .movie-container,
+  .show-container,
+  .kids-container {
+    padding: 10px;
+    margin-top: 10px;
   }
 
   .movie-card,
   .show-card,
   .kids-card {
-    height: 400px;
+    height: 350px;
     min-width: 350px;
   }
 
@@ -625,7 +643,9 @@ footer {
   }
 
   footer {
-    margin-top: -150px;
+    height: 35vh;
+    margin-top: -80px;
+    background-color: #111;
   }
 
   .line {
@@ -636,8 +656,6 @@ footer {
     gap: 30px;
   }
 }
-
-/* DESKTOP */
 
 @media (min-width: 1024px) {
   .dropdown {
@@ -667,38 +685,19 @@ footer {
   .langs a {
     font-size: 16px;
   }
-
-  .image:hover .img-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 15px;
-    gap: 20px;
+  .movie-container,
+  .show-container,
+  .kids-container {
+    padding-top: 20px;
   }
-
-  .bt {
-    height: 40px;
-    width: 40px;
-    font-size: 1.5rem;
-  }
-
-  .movie-info p,
-  .show-info p,
-  .kids-info p {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .Movies,
-  .shows,
-  .kids {
-    margin-top: -40px;
-  }
-
   .mbt {
     height: 40px;
     width: 40px;
     font-size: 24px;
+  }
+  footer {
+    height: 35vh;
+    margin-top: 0px;
   }
 
   .links img {
