@@ -227,7 +227,7 @@ main {
 .malayalam,
 .non-indian {
   height: 50vh;
-  background-color: #111;
+  /* background-color: #111; */
   padding-left: 30px;
 }
 .tamil,
